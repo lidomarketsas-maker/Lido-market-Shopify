@@ -1,0 +1,928 @@
+/* ============================================================
+   LIDO MARKET PLUS — Custom Design System v3.0
+   Tema: Sense | Store B2B Europeo Grossisti
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Urbanist:wght@300;400;500;600;700&display=swap');
+
+/* -----------------------------------------------------------
+   1. VARIABILI CSS
+   ----------------------------------------------------------- */
+:root {
+  --lido-nero:        #1a1a1a;
+  --lido-grigio:      #f5f5f5;
+  --lido-grigio-mid:  #e8e4df;
+  --lido-beige:       #f8f7f5;
+  --lido-arancio:     #e8820c;
+  --lido-arancio-dk:  #c9700a;
+  --lido-rosso:       #c0392b;
+  --lido-bianco:      #ffffff;
+  --lido-testo:       #333333;
+  --lido-testo-light: #777777;
+  --lido-bordo:       #e8e8e8;
+  --lido-ombra:       0 4px 24px rgba(0,0,0,0.10);
+  --lido-ombra-hover: 0 8px 40px rgba(0,0,0,0.18);
+  --lido-raggio:      10px;
+  --lido-transition:  all 0.28s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+/* -----------------------------------------------------------
+   2. RESET & BASE
+   ----------------------------------------------------------- */
+::selection { background: var(--lido-arancio); color: #fff; }
+::-moz-selection { background: var(--lido-arancio); color: #fff; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--lido-grigio); }
+::-webkit-scrollbar-thumb { background: var(--lido-arancio); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--lido-arancio-dk); }
+
+body, .shopify-section { font-family: 'Urbanist', sans-serif; color: var(--lido-testo); }
+h1, h2, h3, h4, .h0, .h1, .h2, .h3 { font-family: 'Cormorant Garamond', serif; letter-spacing: -0.01em; }
+
+/* Section heading pattern — sottolineatura arancio */
+.lido-heading {
+  font-family: 'Cormorant Garamond', serif;
+  text-align: center;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 700;
+  color: var(--lido-nero);
+  margin-bottom: 8px;
+}
+.lido-heading::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--lido-arancio);
+  margin: 14px auto 0;
+  border-radius: 2px;
+}
+.lido-subheading {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--lido-testo-light);
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+/* -----------------------------------------------------------
+   3. HEADER
+   ----------------------------------------------------------- */
+.header-wrapper {
+  background: var(--lido-bianco) !important;
+  border-bottom: 1px solid var(--lido-bordo);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.announcement-bar {
+  background: var(--lido-nero) !important;
+  color: var(--lido-bianco) !important;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.announcement-bar a, .announcement-bar__message { color: var(--lido-bianco) !important; }
+.header__heading-link svg, .header__heading-logo { max-height: 40px !important; }
+
+/* -----------------------------------------------------------
+   4. HERO (image-with-text)
+   ----------------------------------------------------------- */
+.image-with-text__media { position: relative; }
+.image-with-text__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.28) 100%);
+  pointer-events: none;
+}
+.image-with-text__content { padding: 48px 52px !important; }
+.image-with-text .image-with-text__heading {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: clamp(2.8rem, 5vw, 4.2rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.12 !important;
+  color: var(--lido-bianco) !important;
+  margin-bottom: 20px;
+}
+.image-with-text .image-with-text__text {
+  color: rgba(255,255,255,0.88) !important;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  font-weight: 400;
+}
+.image-with-text .button--primary, .image-with-text .button {
+  background: var(--lido-arancio) !important;
+  border-color: var(--lido-arancio) !important;
+  color: var(--lido-bianco) !important;
+  font-family: 'Urbanist', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.1em !important;
+  padding: 16px 36px !important;
+  border-radius: 4px !important;
+  text-transform: uppercase;
+  transition: var(--lido-transition) !important;
+  box-shadow: 0 4px 20px rgba(232,130,12,0.4);
+}
+.image-with-text .button--primary:hover, .image-with-text .button:hover {
+  background: var(--lido-arancio-dk) !important;
+  border-color: var(--lido-arancio-dk) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(232,130,12,0.5);
+}
+.color-scheme-4 .image-with-text__content,
+[class*="scheme-4"] .image-with-text__content {
+  background: rgba(18,18,18,0.86) !important;
+  backdrop-filter: blur(4px);
+  border-radius: var(--lido-raggio);
+}
+.content-container { background-color: rgba(0,0,0,0.78) !important; }
+
+/* -----------------------------------------------------------
+   5. TRUST BAR
+   ----------------------------------------------------------- */
+.lido-trust-bar {
+  background: var(--lido-bianco);
+  border-top: 3px solid var(--lido-arancio);
+  border-bottom: 1px solid var(--lido-bordo);
+  padding: 36px 0;
+}
+.lido-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 20px;
+}
+.lido-trust-item svg {
+  color: var(--lido-arancio);
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.lido-trust-item strong {
+  display: block;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--lido-nero);
+  margin-bottom: 4px;
+}
+.lido-trust-item span { font-size: 0.82rem; color: var(--lido-testo-light); line-height: 1.4; }
+
+/* -----------------------------------------------------------
+   6. CARD PRODOTTO
+   ----------------------------------------------------------- */
+.card-wrapper {
+  border-radius: var(--lido-raggio);
+  overflow: hidden;
+  transition: var(--lido-transition);
+}
+.card-wrapper:hover { transform: translateY(-5px); box-shadow: var(--lido-ombra-hover); }
+.card-wrapper .card {
+  border-radius: var(--lido-raggio) !important;
+  border: 1px solid var(--lido-bordo) !important;
+  overflow: hidden;
+  background: var(--lido-bianco);
+}
+.card__media { overflow: hidden; background: var(--lido-grigio); }
+.card__media img {
+  transition: transform 0.45s ease !important;
+  object-fit: contain !important;
+  background: var(--lido-grigio);
+}
+.card-wrapper:hover .card__media img { transform: scale(1.06); }
+.card__information { padding: 14px 16px 18px !important; }
+.card__heading a {
+  font-family: 'Urbanist', sans-serif !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  color: var(--lido-nero) !important;
+  text-decoration: none !important;
+  line-height: 1.4 !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.price .price-item--regular, .price .price-item--sale {
+  font-family: 'Urbanist', sans-serif !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  color: var(--lido-nero) !important;
+}
+.price .price-item--sale { color: var(--lido-rosso) !important; }
+.badge--sold-out {
+  background: rgba(30,30,30,0.82) !important;
+  color: #fff !important;
+  font-family: 'Urbanist', sans-serif !important;
+  font-size: 0.7rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  border-radius: 4px !important;
+  padding: 3px 8px !important;
+}
+.badge--sale {
+  background: var(--lido-rosso) !important;
+  color: #fff !important;
+  font-family: 'Urbanist', sans-serif !important;
+  font-size: 0.7rem !important;
+  font-weight: 600 !important;
+  border-radius: 4px !important;
+}
+
+/* Skeleton loader per immagini */
+.card__media:empty, .media--loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: lido-shimmer 1.5s infinite;
+}
+@keyframes lido-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* -----------------------------------------------------------
+   7. BOTTONI GLOBALI
+   ----------------------------------------------------------- */
+.button, button.button, a.button {
+  font-family: 'Urbanist', sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
+  border-radius: 4px !important;
+  transition: var(--lido-transition) !important;
+}
+.button--primary {
+  background: var(--lido-arancio) !important;
+  border-color: var(--lido-arancio) !important;
+  color: var(--lido-bianco) !important;
+}
+.button--primary:hover {
+  background: var(--lido-arancio-dk) !important;
+  border-color: var(--lido-arancio-dk) !important;
+  transform: translateY(-2px);
+}
+.button--secondary { border-color: var(--lido-nero) !important; color: var(--lido-nero) !important; }
+.button--secondary:hover { background: var(--lido-nero) !important; color: var(--lido-bianco) !important; }
+.slider-button {
+  background: var(--lido-bianco) !important;
+  border: 1px solid var(--lido-bordo) !important;
+  box-shadow: var(--lido-ombra) !important;
+  transition: var(--lido-transition) !important;
+}
+.slider-button:hover {
+  background: var(--lido-arancio) !important;
+  border-color: var(--lido-arancio) !important;
+  color: var(--lido-bianco) !important;
+}
+
+/* -----------------------------------------------------------
+   8. INPUT & FORM
+   ----------------------------------------------------------- */
+.field__input, .select__select, textarea.field__input,
+input[type="text"], input[type="email"], input[type="tel"], textarea {
+  font-family: 'Urbanist', sans-serif !important;
+  font-size: 0.92rem !important;
+  border: 1.5px solid var(--lido-bordo) !important;
+  border-radius: 4px !important;
+  padding: 12px 16px !important;
+  transition: border-color 0.2s ease !important;
+  background: var(--lido-bianco) !important;
+  color: var(--lido-testo) !important;
+}
+.field__input:focus, .select__select:focus, textarea.field__input:focus,
+input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, textarea:focus {
+  border-color: var(--lido-arancio) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(232,130,12,0.12) !important;
+}
+.field__label {
+  font-family: 'Urbanist', sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: var(--lido-testo-light) !important;
+}
+
+/* Quantity stepper */
+.quantity__input { font-family: 'Urbanist', sans-serif !important; font-weight: 600 !important; }
+.quantity__button { border-color: var(--lido-bordo) !important; transition: var(--lido-transition) !important; }
+.quantity__button:hover { background: var(--lido-arancio) !important; border-color: var(--lido-arancio) !important; color: #fff !important; }
+
+/* -----------------------------------------------------------
+   9. BREADCRUMB
+   ----------------------------------------------------------- */
+.breadcrumbs, nav.breadcrumbs {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 0.8rem;
+  color: var(--lido-testo-light);
+  padding: 12px 0;
+}
+.breadcrumbs a { color: var(--lido-testo-light); text-decoration: none; }
+.breadcrumbs a:hover { color: var(--lido-arancio); }
+.breadcrumbs li::after { content: '/'; margin: 0 6px; opacity: 0.4; }
+.breadcrumbs li:last-child::after { display: none; }
+
+/* -----------------------------------------------------------
+   10. COLLEZIONI / COLLECTION PAGE
+   ----------------------------------------------------------- */
+.collection-list-wrapper .collection-list__item {
+  border-radius: var(--lido-raggio);
+  overflow: hidden;
+  box-shadow: var(--lido-ombra);
+  transition: var(--lido-transition);
+}
+.collection-list-wrapper .collection-list__item:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--lido-ombra-hover);
+}
+.collection-list-wrapper .card__heading {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.8rem !important;
+  font-weight: 600 !important;
+}
+.collection-list-wrapper h2, .featured-collection h2, .featured-collection .title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  color: var(--lido-nero);
+  margin-bottom: 32px;
+}
+
+/* Filtri e sort collection page */
+.facets-container .facets__heading {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lido-nero);
+}
+.facets__summary { border: 1px solid var(--lido-bordo); border-radius: 4px; padding: 10px 16px; }
+.facets-horizontal .facets__label, .mobile-facets__label {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 0.88rem;
+}
+.active-facets__button { background: var(--lido-grigio); border-radius: 20px; font-family: 'Urbanist', sans-serif; font-size: 0.8rem; }
+.active-facets__button:hover { background: var(--lido-arancio); color: #fff; }
+
+/* Sort bar */
+.sort-by__select, .facet-filters__sort .select__select {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 0.88rem;
+  border: 1px solid var(--lido-bordo);
+  border-radius: 4px;
+}
+
+/* -----------------------------------------------------------
+   11. PAGINAZIONE
+   ----------------------------------------------------------- */
+.pagination { font-family: 'Urbanist', sans-serif; }
+.pagination__item {
+  width: 40px; height: 40px;
+  border: 1px solid var(--lido-bordo);
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: var(--lido-transition);
+  text-decoration: none;
+  color: var(--lido-nero);
+}
+.pagination__item:hover, .pagination__item--current {
+  background: var(--lido-arancio);
+  border-color: var(--lido-arancio);
+  color: #fff;
+}
+
+/* -----------------------------------------------------------
+   12. PRODUCT PAGE
+   ----------------------------------------------------------- */
+.product__title {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: clamp(1.8rem, 3vw, 2.4rem) !important;
+  font-weight: 700 !important;
+}
+.product__price .price-item {
+  font-family: 'Urbanist', sans-serif !important;
+  font-size: 1.6rem !important;
+  font-weight: 700 !important;
+  color: var(--lido-nero) !important;
+}
+.product-form__cart-submit {
+  background: var(--lido-arancio) !important;
+  border-color: var(--lido-arancio) !important;
+  color: var(--lido-bianco) !important;
+  font-family: 'Urbanist', sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  font-size: 0.88rem !important;
+  border-radius: 4px !important;
+  transition: var(--lido-transition) !important;
+  height: 52px !important;
+}
+.product-form__cart-submit:hover {
+  background: var(--lido-arancio-dk) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(232,130,12,0.4);
+}
+.product__media-item { border-radius: var(--lido-raggio); overflow: hidden; }
+.product__media-toggle:hover { border-color: var(--lido-arancio) !important; }
+
+/* Product tabs (descrizione / spedizione) */
+.tabs { border-bottom: 2px solid var(--lido-bordo); margin: 32px 0 24px; }
+.tabs__tab {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--lido-testo-light);
+  padding: 12px 20px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: var(--lido-transition);
+  background: transparent;
+  margin-bottom: -2px;
+}
+.tabs__tab:hover { color: var(--lido-nero); }
+.tabs__tab.active, .tabs__tab[aria-selected="true"] {
+  color: var(--lido-arancio);
+  border-bottom-color: var(--lido-arancio);
+}
+.product__description { font-size: 0.95rem; line-height: 1.8; color: var(--lido-testo); }
+.product__description h2, .product__description h3 { font-family: 'Cormorant Garamond', serif; color: var(--lido-nero); }
+
+/* -----------------------------------------------------------
+   13. CART DRAWER
+   ----------------------------------------------------------- */
+.cart-drawer__heading { font-family: 'Cormorant Garamond', serif !important; font-size: 1.6rem !important; }
+.cart-drawer__footer .button { background: var(--lido-arancio) !important; border-color: var(--lido-arancio) !important; }
+.cart-item__name { font-family: 'Urbanist', sans-serif !important; font-size: 0.92rem !important; font-weight: 600 !important; }
+
+/* -----------------------------------------------------------
+   14. NEWSLETTER SECTION
+   ----------------------------------------------------------- */
+.newsletter { background: var(--lido-nero) !important; padding: 56px 24px !important; }
+.newsletter .section-header__title { font-family: 'Cormorant Garamond', serif !important; color: var(--lido-bianco) !important; font-size: 2rem !important; }
+.newsletter .field__input { border-color: rgba(255,255,255,0.3) !important; background: rgba(255,255,255,0.08) !important; color: var(--lido-bianco) !important; }
+.newsletter .field__label { color: rgba(255,255,255,0.6) !important; }
+.newsletter .button--primary { background: var(--lido-arancio) !important; border-color: var(--lido-arancio) !important; }
+
+/* -----------------------------------------------------------
+   15. BRAND STORY SECTION (custom-liquid)
+   ----------------------------------------------------------- */
+.lido-brand-story {
+  background: var(--lido-beige);
+  padding: 80px 24px;
+  border-top: 1px solid var(--lido-grigio-mid);
+  border-bottom: 1px solid var(--lido-grigio-mid);
+}
+.lido-brand-story__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: center;
+}
+.lido-brand-story__tag {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lido-arancio);
+  margin-bottom: 16px;
+}
+.lido-brand-story__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--lido-nero);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.lido-brand-story__body {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: var(--lido-testo);
+  margin-bottom: 28px;
+}
+.lido-brand-story__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  border-top: 1px solid var(--lido-bordo);
+  padding-top: 24px;
+}
+.lido-brand-story__stat strong {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--lido-arancio);
+  line-height: 1;
+}
+.lido-brand-story__stat span {
+  font-size: 0.8rem;
+  color: var(--lido-testo-light);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.lido-brand-story__visual {
+  background: var(--lido-grigio-mid);
+  border-radius: var(--lido-raggio);
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  position: relative;
+}
+.lido-brand-story__visual img { width: 100%; height: 100%; object-fit: cover; }
+.lido-brand-story__visual-badge {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: var(--lido-arancio);
+  color: #fff;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+/* -----------------------------------------------------------
+   16. CTA BAND (custom-liquid)
+   ----------------------------------------------------------- */
+.lido-cta-band {
+  background: var(--lido-nero);
+  padding: 72px 24px;
+  text-align: center;
+}
+.lido-cta-band__eyebrow {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--lido-arancio);
+  margin-bottom: 16px;
+}
+.lido-cta-band__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  color: var(--lido-bianco);
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+.lido-cta-band__sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 36px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+.lido-cta-band .lido-btn-primary {
+  display: inline-block;
+  background: var(--lido-arancio);
+  color: #fff;
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 18px 44px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: var(--lido-transition);
+  box-shadow: 0 4px 20px rgba(232,130,12,0.4);
+  margin: 0 8px;
+}
+.lido-cta-band .lido-btn-primary:hover {
+  background: var(--lido-arancio-dk);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(232,130,12,0.5);
+}
+.lido-cta-band .lido-btn-outline {
+  display: inline-block;
+  background: transparent;
+  color: rgba(255,255,255,0.85);
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 17px 44px;
+  border-radius: 4px;
+  text-decoration: none;
+  border: 1.5px solid rgba(255,255,255,0.35);
+  transition: var(--lido-transition);
+  margin: 0 8px;
+}
+.lido-cta-band .lido-btn-outline:hover {
+  border-color: #fff;
+  color: #fff;
+  background: rgba(255,255,255,0.08);
+}
+
+/* -----------------------------------------------------------
+   17. PAGINA CONTATTI
+   ----------------------------------------------------------- */
+.lido-contact-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+}
+.lido-contact-page__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.lido-contact-page__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  color: var(--lido-nero);
+  margin-bottom: 8px;
+}
+.lido-contact-page__sub {
+  font-size: 0.95rem;
+  color: var(--lido-testo-light);
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+.lido-contact-info__block {
+  background: var(--lido-beige);
+  border-radius: var(--lido-raggio);
+  padding: 32px;
+  position: sticky;
+  top: 100px;
+}
+.lido-contact-info__title {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lido-arancio);
+  margin-bottom: 20px;
+}
+.lido-contact-info__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--lido-bordo);
+}
+.lido-contact-info__row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.lido-contact-info__icon {
+  width: 36px; height: 36px;
+  background: var(--lido-arancio);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #fff;
+}
+.lido-contact-info__label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--lido-testo-light);
+  margin-bottom: 4px;
+}
+.lido-contact-info__value {
+  font-size: 0.92rem;
+  color: var(--lido-nero);
+  font-weight: 500;
+  line-height: 1.5;
+}
+.lido-contact-info__value a { color: var(--lido-nero); text-decoration: none; }
+.lido-contact-info__value a:hover { color: var(--lido-arancio); }
+
+/* -----------------------------------------------------------
+   18. FOOTER
+   ----------------------------------------------------------- */
+.footer { background: #111111 !important; color: rgba(255,255,255,0.75) !important; padding-top: 56px !important; }
+.footer__heading {
+  font-family: 'Urbanist', sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: var(--lido-arancio) !important;
+  margin-bottom: 18px !important;
+}
+.footer a, .footer p, .footer li {
+  font-family: 'Urbanist', sans-serif !important;
+  font-size: 0.88rem !important;
+  color: rgba(255,255,255,0.65) !important;
+  line-height: 1.9 !important;
+}
+.footer a:hover { color: var(--lido-arancio) !important; text-decoration: none !important; }
+.footer__content-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1) !important;
+  padding-top: 20px !important;
+  margin-top: 40px !important;
+  font-size: 0.78rem !important;
+  color: rgba(255,255,255,0.38) !important;
+}
+
+/* -----------------------------------------------------------
+   19. BACK-TO-TOP BUTTON
+   ----------------------------------------------------------- */
+.lido-back-top {
+  position: fixed;
+  bottom: 32px;
+  right: 28px;
+  width: 44px; height: 44px;
+  background: var(--lido-arancio);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(232,130,12,0.45);
+  transition: var(--lido-transition);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 999;
+  font-size: 1.1rem;
+}
+.lido-back-top.visible { opacity: 1; pointer-events: auto; }
+.lido-back-top:hover { background: var(--lido-arancio-dk); transform: translateY(-3px); }
+
+/* -----------------------------------------------------------
+   20. MOBILE RESPONSIVE
+   ----------------------------------------------------------- */
+@media (max-width: 749px) {
+  .image-with-text .image-with-text__heading { font-size: 2.2rem !important; }
+  .image-with-text__content { padding: 32px 24px !important; }
+  .lido-trust-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .lido-brand-story__grid { grid-template-columns: 1fr; gap: 40px; }
+  .lido-brand-story { padding: 56px 20px; }
+  .lido-brand-story__visual { aspect-ratio: 16/9; }
+  .lido-cta-band { padding: 52px 20px; }
+  .lido-cta-band .lido-btn-primary,
+  .lido-cta-band .lido-btn-outline { display: block; margin: 8px auto; max-width: 280px; text-align: center; }
+  .lido-contact-page__grid { grid-template-columns: 1fr; gap: 40px; }
+  .lido-contact-info__block { position: static; }
+  .footer { padding-top: 36px !important; }
+  .lido-back-top { bottom: 20px; right: 16px; }
+}
+
+/* -----------------------------------------------------------
+   21. PRINT
+   ----------------------------------------------------------- */
+@media print {
+  .header-wrapper, .footer, .announcement-bar,
+  .lido-back-top, .cart-notification { display: none !important; }
+  body { font-size: 12pt; color: #000; }
+}
+
+/* ============================================================
+   21. IN-STORE BADGE
+   ============================================================ */
+.lido-instore-badge {
+  background: #fff8f0;
+  border: 2px solid var(--lido-accent, #ff9900);
+  border-radius: 6px;
+  padding: 24px 28px;
+  margin-top: 24px;
+  font-family: var(--lido-font-body, 'Urbanist', sans-serif);
+  color: #333;
+  line-height: 1.6;
+}
+.lido-instore-badge__icon {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+.lido-instore-badge strong {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 8px;
+}
+.lido-instore-badge p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0 0 16px;
+}
+.lido-instore-badge__link {
+  display: inline-block;
+  background: var(--lido-accent, #ff9900);
+  color: #fff;
+  font-family: var(--lido-font-body, 'Urbanist', sans-serif);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  text-decoration: none;
+}
+.lido-instore-badge__link:hover {
+  background: #e08800;
+  color: #fff;
+}
+/* ============================================================
+   22. BUG FIX — Announcement bar slider buttons + Logo
+   ============================================================ */
+.announcement-bar-section .slider-button,
+.slider-button--prev,
+.slider-button--next { display: none !important; }
+
+.header__heading-logo {
+  max-height: 56px;
+  width: auto !important;
+  object-fit: contain;
+}
+
+/* ===== VISTI DI RECENTE — Gallery Grid ===== */
+.lido-rv-section {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.lido-rv-section h3 {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.lido-rv-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.lido-rv-grid a {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #1a1a1a;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.lido-rv-grid a:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+.lido-rv-grid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  background: #f5f5f5;
+}
+.lido-rv-grid span {
+  padding: 8px 10px 4px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.lido-rv-price {
+  padding: 2px 10px 12px;
+  font-size: 0.78rem;
+  color: #666;
+}
+@media (max-width: 768px) {
+  .lido-rv-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+}
+@media (max-width: 480px) {
+  .lido-rv-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .lido-rv-section { padding: 24px 12px; }
+}
