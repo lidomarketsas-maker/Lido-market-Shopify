@@ -1,0 +1,55 @@
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "info-col": {
+          "type": "text",
+          "settings": {
+            "heading": "Lido Market Plus",
+            "subtext": "<p>Il tuo negozio di fiducia per illuminazione Sunlux e utensili Tekone. Qualità europea, prezzi onesti.<\/p>"
+          }
+        },
+        "brands-col": {
+          "type": "link_list",
+          "settings": {
+            "heading": "I nostri brand",
+            "menu": "main-menu"
+          }
+        },
+        "info-links-col": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Informazioni",
+            "menu": "footer"
+          }
+        },
+        "contact-col": {
+          "type": "text",
+          "settings": {
+            "heading": "Contatti",
+            "subtext": "<p>Assistenza clienti<br>Lunedì – Sabato<br>9:00 – 18:00<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "info-col",
+        "brands-col",
+        "info-links-col",
+        "contact-col"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "newsletter_enable": false,
+        "show_policy": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}
