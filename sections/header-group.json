@@ -1,0 +1,73 @@
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "ann-1": {
+          "type": "announcement",
+          "settings": {
+            "text": "Spedizione gratuita su tutti gli ordini sopra €55",
+            "link": ""
+          }
+        },
+        "ann-2": {
+          "type": "announcement",
+          "settings": {
+            "text": "Sunlux: illuminazione professionale per la tua casa",
+            "link": "shopify:\/\/collections\/sunlux"
+          }
+        },
+        "ann-3": {
+          "type": "announcement",
+          "settings": {
+            "text": "Tekone: utensili e accessori di qualità europea",
+            "link": "shopify:\/\/collections\/tekone"
+          }
+        },
+        "ann-4": {
+          "type": "announcement",
+          "settings": {
+            "text": "Reso facile entro 30 giorni — Pagamento sicuro SSL",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "ann-1",
+        "ann-2",
+        "ann-3",
+        "ann-4"
+      ],
+      "settings": {
+        "auto_rotate": true,
+        "change_slides_speed": 4,
+        "color_scheme": "scheme-4",
+        "show_line_separator": true,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "logo_position": "top-center",
+        "mobile_logo_position": "center",
+        "menu": "main-menu",
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "on-scroll-up",
+        "color_scheme": "scheme-1",
+        "show_line_separator": true,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "margin_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}
