@@ -1,0 +1,207 @@
+{%- comment -%}
+  Lido Cert Badges v2 — Badge certificazioni/conformità EU per categoria prodotto
+  
+  TAG DA AGGIUNGERE AL PRODOTTO:
+  
+  === SICUREZZA / CONFORMITÀ GENERALE ===
+  cert-ce          → Marcatura CE (obbligatoria per quasi tutto)
+  cert-gs          → GS Mark - Geprüfte Sicherheit (sicurezza verificata, TÜV)
+  cert-en71        → EN 71 - Sicurezza giocattoli / articoli per bambini
+  cert-en388       → EN 388 - Guanti di protezione meccanica
+  cert-en ISO      → EN ISO standard generici
+  
+  === CHIMICA / MATERIALI ===
+  cert-reach       → REACH - Reg. UE 1907/2006 (sostanze chimiche)
+  cert-rohs        → RoHS - Direttiva 2011/65/EU (no sostanze pericolose elettronica)
+  cert-bpa-free    → BPA Free - Senza Bisfenolo A
+  cert-food-contact → Contatto alimentare - Reg. UE 10/2011 (plastica a contatto cibo)
+  cert-lfgb        → LFGB - Standard tedesco contatto alimentare
+  cert-phthalate-free → Senza ftalati
+  
+  === ELETTRONICA / ENERGIA ===
+  cert-weee        → WEEE - Direttiva 2012/19/EU (smaltimento RAEE)
+  cert-erp         → ErP - Energy-related Products Dir. 2009/125/EC
+  cert-emc         → EMC - Compatibilità elettromagnetica Dir. 2014/30/EU
+  cert-lvd         → LVD - Bassa tensione Dir. 2014/35/EU
+  cert-ip44        → IP44 - Protezione ingresso (polvere/acqua)
+  cert-ip65        → IP65 - Protezione totale polvere + getti acqua
+  cert-ip67        → IP67 - Impermeabile immersione
+  
+  === QUALITÀ / AMBIENTE ===
+  cert-iso9001     → ISO 9001 - Gestione qualità
+  cert-iso14001    → ISO 14001 - Gestione ambientale
+  cert-ecolabel    → EU Ecolabel - Marchio ecologico europeo
+  cert-fsc         → FSC - Foreste gestite responsabilmente
+  cert-recycled    → Contenuto riciclato
+  cert-carbon-neutral → Carbon Neutral
+  
+  === SPECIFICHE PRODOTTO ===
+  cert-din         → DIN - Standard tedesco (utensili)
+  cert-ansi        → ANSI/ASME (standard utensili internazionale)
+  cert-tuv         → TÜV Rheinland / SÜD certificato
+  cert-intertek    → Intertek ETL certificato
+  cert-ul          → UL Listed (mercato internazionale)
+{%- endcomment -%}
+
+{%- assign has_cert = false -%}
+{%- for tag in product.tags -%}
+  {%- if tag contains 'cert-' -%}{%- assign has_cert = true -%}{%- endif -%}
+{%- endfor -%}
+
+{%- if has_cert -%}
+<div class="lido-cert-badges" style="margin:18px 0 12px;padding:14px 16px;background:#fafafa;border:1px solid #e8e8e8;border-radius:6px;">
+  <p style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.07em;color:#888;font-weight:700;margin:0 0 10px 0;">Certificazioni &amp; Conformità EU</p>
+  <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
+
+  {%- for tag in product.tags -%}
+    {%- case tag -%}
+
+    {%- when 'cert-ce' -%}
+    <span class="lido-cert-badge" title="Marcatura CE — Conformità direttive europee applicabili" style="display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #003399;border-radius:4px;padding:4px 10px;font-size:0.78rem;font-weight:800;color:#003399;letter-spacing:0.02em;">
+      <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="14" stroke="#003399" stroke-width="2.5" fill="none"/><text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="800" fill="#003399" font-family="Arial">CE</text></svg>
+      CE
+    </span>
+
+    {%- when 'cert-rohs' -%}
+    <span class="lido-cert-badge" title="RoHS — Dir. 2011/65/EU: limitazione sostanze pericolose nei prodotti elettronici" style="display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #2e7d32;border-radius:4px;padding:4px 10px;font-size:0.78rem;font-weight:700;color:#2e7d32;">
+      <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="4" fill="#2e7d32"/><text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" font-size="10" font-weight="800" fill="white" font-family="Arial">RoHS</text></svg>
+      RoHS
+    </span>
+
+    {%- when 'cert-reach' -%}
+    <span class="lido-cert-badge" title="REACH — Reg. CE 1907/2006: registrazione, valutazione e autorizzazione sostanze chimiche" style="display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #0d47a1;border-radius:4px;padding:4px 10px;font-size:0.78rem;font-weight:700;color:#0d47a1;">
+      <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="4" fill="#0d47a1"/><text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" font-size="9" font-weight="800" fill="white" font-family="Arial">REACH</text></svg>
+      REACH
+    </span>
+
+    {%- when 'cert-weee' -%}
+    <span class="lido-cert-badge" title="WEEE — Dir. 2012/19/EU: smaltimento corretto apparecchiature elettriche ed elettroniche" style="display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #424242;border-radius:4px;padding:4px 10px;font-size:0.78rem;font-weight:700;color:#424242;">
+      <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="2" fill="#424242"/><rect x="9" y="6" width="14" height="16" rx="1" stroke="white" stroke-width="1.5" fill="none"/><line x1="6" y1="24" x2="26" y2="24" stroke="white" stroke-width="2"/><path d="M12 28 L16 24 L20 28" stroke="white" stroke-width="1.5" fill="none"/></svg>
+      WEEE
+    </span>
+
+    {%- when 'cert-erp' -%}
+    <span class="lido-cert-badge" title="ErP — Dir. 2009/125/CE: progettazione ecocompatibile prodotti correlati all'energia" style="display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #e65100;border-radius:4px;padding:4px 10px;font-size:0.78rem;font-weight:700;color:#e65100;">
+      <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="4" fill="#e65100"/><text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight="800" fill="white" font-family="Arial">ErP</text></svg>
+      ErP
+    </span>
+
+    {%- when 'cert-emc' -%}
+    <span class="lido-cert-badge" title="EMC — Dir. 2014/30/EU: compatibilità elettromagnetica" style="display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #4a148c;border-radius:4px;padding:4px 10px;font-size:0.78rem;font-weight:700;color:#4a148c;">
+      <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="4" fill="#4a148c"/><text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" font-size="10" font-weight="800" fill="white" font-family="Arial">EMC</text></svg>
+      EMC
+    </span>
+
+    {%- when 'cert-lvd' -%}
+    <span class="lido-cert-badge" title="LVD — Dir. 2014/35/EU: sicurezza materiale elettrico a bassa tensione" style="display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #880e4f;border-radius:4px;padding:4px 10px;font-size:0.78rem;font-weight:700;color:#880e4f;">
+      <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="4" fill="#880e4f"/><text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" font-size="10" font-weight="800" fill="white" font-family="Arial">LVD</text></svg>
+      LVD
+    </span>
+
+    {%- when 'cert-bpa-free' -%}
+    <span class="lido-cert-badge" title="BPA Free — Senza Bisfenolo A (Reg. UE 2018/213)" style="display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #00695c;border-radius:4px;padding:4px 10px;font-size:0.78rem;font-weight:700;color:#00695c;">
+      <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="14" fill="#00695c"/><text x="50%" y="40%" text-anchor="middle" dominant-baseline="middle" font-size="7" font-weight="800" fill="white" font-family="Arial">BPA</text><text x="50%" y="66%" text-anchor="middle" dominant-baseline="middle" font-size="7" font-weight="800" fill="white" font-family="Arial">FREE</text></svg>
+      BPA Free
+    </span>
+
+    {%- when 'cert-food-contact' -%}
+    <span class="lido-cert-badge" title="Contatto Alimentare — Reg. UE 10/2011: materiali plastici a contatto con alimenti" style="display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #1565c0;border-radius:4px;padding:4px 10px;font-size:0.78rem;font-weight:700;color:#1565c0;">
+      <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="14" stroke="#1565c0" stroke-width="2" fill="none"/><path d="M10 20 Q16 10 22 20" stroke="#1565c0" stroke-width="2" fill="none"/><circle cx="16" cy="22" r="3" fill="#1565c0"/></svg>
+      Contatto Alim.
+    </span>
+
+    {%- when 'cert-en71' -%}
+    <span class="lido-cert-badge" title="EN 71 — Sicurezza dei giocattoli e articoli per bambini" style="display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #f57f17;border-radius:4px;padding:4px 10px;font-size:0.78rem;font-weight:700;color:#f57f17;">
+      <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="4" fill="#f57f17"/><text x="50%" y="40%" text-anchor="middle" dominant-baseline="middle" font-size="7" font-weight="800" fill="white" font-family="Arial">EN 71</text><text x="50%" y="66%" text-anchor="middle" dominant-baseline="middle" font-size="6" font-weight="700" fill="white" font-family="Arial">SAFETY</text></svg>
+      EN 71
+    </span>
+
+    {%- when 'cert-gs' -%}
+    <span class="lido-cert-badge" title="GS Mark — Geprüfte Sicherheit: sicurezza prodotto verificata (TÜV/DEKRA)" style="display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #37474f;border-radius:4px;padding:4px 10px;font-size:0.78rem;font-weight:700;color:#37474f;">
+      <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 2 L28 8 L28 20 Q28 28 16 31 Q4 28 4 20 L4 8 Z" fill="#37474f"/><text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight="800" fill="white" font-family="Arial">GS</text></svg>
+      GS Mark
+    </span>
+
+    {%- when 'cert-tuv' -%}
+    <span class="lido-cert-badge" title="TÜV — Prodotto certificato da TÜV Rheinland o TÜV SÜD" style="display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #d32f2f;border-radius:4px;padding:4px 10px;font-size:0.78rem;font-weight:700;color:#d32f2f;">
+      <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="14" fill="#d32f2f"/><text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" font-size="10" font-weight="800" fill="white" font-family="Arial">TÜV</text></svg>
+      TÜV
+    </span>
+
+    {%- when 'cert-din' -%}
+    <span class="lido-cert-badge" title="DIN — Conformità agli standard DIN (utensili e ferramenta)" style="display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #1a237e;border-radius:4px;padding:4px 10px;font-size:0.78rem;font-weight:700;color:#1a237e;">
+      <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="4" fill="#1a237e"/><text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight="800" fill="white" font-family="Arial">DIN</text></svg>
+      DIN
+    </span>
+
+    {%- when 'cert-iso9001' -%}
+    <span class="lido-cert-badge" title="ISO 9001 — Sistema di gestione della qualità certificato" style="display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #b71c1c;border-radius:4px;padding:4px 10px;font-size:0.78rem;font-weight:700;color:#b71c1c;">
+      <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="4" fill="#b71c1c"/><text x="50%" y="38%" text-anchor="middle" dominant-baseline="middle" font-size="7" font-weight="800" fill="white" font-family="Arial">ISO</text><text x="50%" y="64%" text-anchor="middle" dominant-baseline="middle" font-size="7" font-weight="800" fill="white" font-family="Arial">9001</text></svg>
+      ISO 9001
+    </span>
+
+    {%- when 'cert-iso14001' -%}
+    <span class="lido-cert-badge" title="ISO 14001 — Sistema di gestione ambientale certificato" style="display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #2e7d32;border-radius:4px;padding:4px 10px;font-size:0.78rem;font-weight:700;color:#2e7d32;">
+      <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="4" fill="#2e7d32"/><text x="50%" y="38%" text-anchor="middle" dominant-baseline="middle" font-size="7" font-weight="800" fill="white" font-family="Arial">ISO</text><text x="50%" y="64%" text-anchor="middle" dominant-baseline="middle" font-size="7" font-weight="800" fill="white" font-family="Arial">14001</text></svg>
+      ISO 14001
+    </span>
+
+    {%- when 'cert-ecolabel' -%}
+    <span class="lido-cert-badge" title="EU Ecolabel — Reg. 66/2010: marchio ecologico europeo" style="display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #1b5e20;border-radius:4px;padding:4px 10px;font-size:0.78rem;font-weight:700;color:#1b5e20;">
+      <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="14" fill="#1b5e20"/><text x="50%" y="45%" text-anchor="middle" dominant-baseline="middle" font-size="7" font-weight="800" fill="white" font-family="Arial">EU</text><text x="50%" y="66%" text-anchor="middle" dominant-baseline="middle" font-size="7" font-weight="800" fill="white" font-family="Arial">ECO</text></svg>
+      Ecolabel
+    </span>
+
+    {%- when 'cert-recycled' -%}
+    <span class="lido-cert-badge" title="Materiale Riciclato — Prodotto realizzato con materiali riciclati post-consumo" style="display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #388e3c;border-radius:4px;padding:4px 10px;font-size:0.78rem;font-weight:700;color:#388e3c;">
+      <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 4 L20 10 L14 10 Z" fill="#388e3c"/><path d="M16 4 Q26 8 26 18 Q26 28 16 28" stroke="#388e3c" stroke-width="2.5" fill="none"/><path d="M16 28 Q6 28 6 18 Q6 8 16 4" stroke="#388e3c" stroke-width="2.5" fill="none" stroke-dasharray="3,2"/></svg>
+      Riciclato
+    </span>
+
+    {%- when 'cert-ip44' -%}
+    <span class="lido-cert-badge" title="IP44 — Protezione contro corpi solidi &gt;1mm e schizzi d'acqua" style="display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #0277bd;border-radius:4px;padding:4px 10px;font-size:0.78rem;font-weight:700;color:#0277bd;">
+      <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="4" fill="#0277bd"/><text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" font-size="10" font-weight="800" fill="white" font-family="Arial">IP44</text></svg>
+      IP44
+    </span>
+
+    {%- when 'cert-ip65' -%}
+    <span class="lido-cert-badge" title="IP65 — Protezione totale contro polvere e getti d'acqua" style="display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #01579b;border-radius:4px;padding:4px 10px;font-size:0.78rem;font-weight:700;color:#01579b;">
+      <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="4" fill="#01579b"/><text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" font-size="10" font-weight="800" fill="white" font-family="Arial">IP65</text></svg>
+      IP65
+    </span>
+
+    {%- when 'cert-ip67' -%}
+    <span class="lido-cert-badge" title="IP67 — Impermeabile: immersione fino a 1m per 30 minuti" style="display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #003c8f;border-radius:4px;padding:4px 10px;font-size:0.78rem;font-weight:700;color:#003c8f;">
+      <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="4" fill="#003c8f"/><text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" font-size="10" font-weight="800" fill="white" font-family="Arial">IP67</text></svg>
+      IP67
+    </span>
+
+    {%- when 'cert-fsc' -%}
+    <span class="lido-cert-badge" title="FSC — Forest Stewardship Council: legno da foreste gestite responsabilmente" style="display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #33691e;border-radius:4px;padding:4px 10px;font-size:0.78rem;font-weight:700;color:#33691e;">
+      <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="14" fill="#33691e"/><text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" font-size="10" font-weight="800" fill="white" font-family="Arial">FSC</text></svg>
+      FSC
+    </span>
+
+    {%- when 'cert-phthalate-free' -%}
+    <span class="lido-cert-badge" title="Senza Ftalati — Conforme Reg. UE 2018/2005: nessun ftalato pericoloso" style="display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #006064;border-radius:4px;padding:4px 10px;font-size:0.78rem;font-weight:700;color:#006064;">
+      <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="14" fill="#006064"/><text x="50%" y="42%" text-anchor="middle" dominant-baseline="middle" font-size="6.5" font-weight="800" fill="white" font-family="Arial">PHTH.</text><text x="50%" y="65%" text-anchor="middle" dominant-baseline="middle" font-size="6.5" font-weight="800" fill="white" font-family="Arial">FREE</text></svg>
+      Ftalati Free
+    </span>
+
+    {%- when 'cert-lfgb' -%}
+    <span class="lido-cert-badge" title="LFGB — Standard tedesco per materiali a contatto con alimenti (oltre Reg. UE 10/2011)" style="display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #4e342e;border-radius:4px;padding:4px 10px;font-size:0.78rem;font-weight:700;color:#4e342e;">
+      <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="4" fill="#4e342e"/><text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" font-size="9" font-weight="800" fill="white" font-family="Arial">LFGB</text></svg>
+      LFGB
+    </span>
+
+    {%- when 'cert-carbon-neutral' -%}
+    <span class="lido-cert-badge" title="Carbon Neutral — Produzione a emissioni di CO₂ compensate" style="display:inline-flex;align-items:center;gap:5px;background:#fff;border:1.5px solid #263238;border-radius:4px;padding:4px 10px;font-size:0.78rem;font-weight:700;color:#263238;">
+      <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="14" fill="#263238"/><text x="50%" y="42%" text-anchor="middle" dominant-baseline="middle" font-size="5.5" font-weight="800" fill="white" font-family="Arial">CARBON</text><text x="50%" y="64%" text-anchor="middle" dominant-baseline="middle" font-size="5.5" font-weight="800" fill="white" font-family="Arial">NEUTRAL</text></svg>
+      Carbon Neutral
+    </span>
+
+    {%- endcase -%}
+  {%- endfor -%}
+  </div>
+</div>
+{%- endif -%}
